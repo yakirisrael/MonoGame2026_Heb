@@ -46,12 +46,9 @@ public class Game1 : Game
         _spriteBatch = new SpriteBatch(GraphicsDevice);
 
         player.texture =  Content.Load<Texture2D>("Images/pacman");
-        player.tm.position = _screenCenter;
-        player.tm.scale = new Vector2(0.3f, 0.3f);
+        player.Start();
         
         _pongAtlas =  Content.Load<Texture2D>("Images/pong-atlas");
-        
-        
 
         
         // TODO: use this.Content to load your game content here
