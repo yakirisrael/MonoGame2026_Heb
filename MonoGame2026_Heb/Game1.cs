@@ -15,7 +15,7 @@ public class Game1 : Game
     
     public static Vector2 _screenCenter;
 
-    private Player logoSprite = new Player();
+    private Player player = new Player();
     
     public Game1()
     {
@@ -45,9 +45,9 @@ public class Game1 : Game
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-        logoSprite.texture =  Content.Load<Texture2D>("Images/pacman");
-        logoSprite.tm.position = _screenCenter;
-        
+        player.texture =  Content.Load<Texture2D>("Images/pacman");
+        player.tm.position = _screenCenter;
+        player.tm.scale = new Vector2(0.3f, 0.3f);
         
         _pongAtlas =  Content.Load<Texture2D>("Images/pong-atlas");
         
@@ -66,7 +66,7 @@ public class Game1 : Game
      
         // TODO: Add your update logic here
 
-        logoSprite.Update(gameTime);
+        player.Update(gameTime);
         
         base.Update(gameTime);
     }
@@ -97,7 +97,7 @@ public class Game1 : Game
         );
         
         
-        logoSprite.Draw(_spriteBatch);
+        player.Draw(_spriteBatch);
         
        /* _spriteBatch.Draw(
             _logo, 
