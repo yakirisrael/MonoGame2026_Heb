@@ -1,4 +1,5 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Users/yakir/RiderProjects/MonoGame2026_Heb/MonoGame2026_Heb/Content/Fonts/Oswald.spritefont","C:/Users/yakir/RiderProjects/MonoGame2026_Heb/MonoGame2026_Heb/Content/bin/DesktopGL/Content/Fonts/Oswald.xnb","FontDescriptionProcessor","SpriteFontContent",2069,136217,0.1123661
 "C:/Users/yakir/RiderProjects/MonoGame2026_Heb/MonoGame2026_Heb/Content/Images/logo.png","C:/Users/yakir/RiderProjects/MonoGame2026_Heb/MonoGame2026_Heb/Content/bin/DesktopGL/Content/Images/logo.xnb","TextureProcessor","Texture2DContent",16734,311381,0.0749972
 "C:/Users/yakir/RiderProjects/MonoGame2026_Heb/MonoGame2026_Heb/Content/Images/pacman.png","C:/Users/yakir/RiderProjects/MonoGame2026_Heb/MonoGame2026_Heb/Content/bin/DesktopGL/Content/Images/pacman.xnb","TextureProcessor","Texture2DContent",14575,1048661,0.0837933
 "C:/Users/yakir/RiderProjects/MonoGame2026_Heb/MonoGame2026_Heb/Content/Images/pong-atlas.png","C:/Users/yakir/RiderProjects/MonoGame2026_Heb/MonoGame2026_Heb/Content/bin/DesktopGL/Content/Images/pong-atlas.xnb","TextureProcessor","Texture2DContent",4746,663637,0.0147677

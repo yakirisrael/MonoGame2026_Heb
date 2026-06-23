@@ -16,6 +16,10 @@ public class Game1 : Game
     public static Vector2 _screenCenter;
 
     private Player player = new Player();
+
+    private SpriteFont _fontOswald;
+    
+    MousePositionText mousePositionText = new MousePositionText();
     
     public Game1()
     {
@@ -49,7 +53,9 @@ public class Game1 : Game
         player.Start();
         
         _pongAtlas =  Content.Load<Texture2D>("Images/pong-atlas");
-
+ 
+        mousePositionText.font = Content.Load<SpriteFont>("Fonts/Oswald");
+        mousePositionText.Start();
         
         // TODO: use this.Content to load your game content here
     }
@@ -64,6 +70,7 @@ public class Game1 : Game
         // TODO: Add your update logic here
 
         player.Update(gameTime);
+        mousePositionText.Update(gameTime);
         
         base.Update(gameTime);
     }
@@ -73,13 +80,11 @@ public class Game1 : Game
         GraphicsDevice.Clear(Color.DarkRed);
 
         _spriteBatch.Begin();
-
+        
         
 
         int index = 1;
         int columns = 2;
-        
-        
         
         _spriteBatch.Draw(
             _pongAtlas, 
@@ -95,6 +100,7 @@ public class Game1 : Game
         
         
         player.Draw(_spriteBatch);
+        mousePositionText.Draw(_spriteBatch);
         
        /* _spriteBatch.Draw(
             _logo, 
