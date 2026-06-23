@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
 namespace MonoGame2026_Heb;
@@ -27,11 +28,13 @@ public class Player : Sprite
         
         if (Keyboard.GetState().IsKeyDown(Keys.D))
         {
+            effects = SpriteEffects.None;
             tm.position += new Vector2(speedMovement * deltaTime, 0);
         }
         
         if (Keyboard.GetState().IsKeyDown(Keys.A))
         {
+            effects = SpriteEffects.FlipHorizontally;
             tm.position += new Vector2(-speedMovement * deltaTime, 0);
         }
         
