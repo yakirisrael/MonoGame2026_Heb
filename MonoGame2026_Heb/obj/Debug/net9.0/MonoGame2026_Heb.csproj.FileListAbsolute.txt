@@ -33,3 +33,5 @@ C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\
 C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\MonoGame2026_Heb.pdb
 C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\MonoGame2026_Heb.genruntimeconfig.cache
 C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\ref\MonoGame2026_Heb.dll
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\MonoGame2026_Heb.sourcelink.json
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\pacman.xnb

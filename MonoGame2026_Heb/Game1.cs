@@ -13,11 +13,10 @@ public class Game1 : Game
     Texture2D _logo;
     Texture2D _pongAtlas;
     
-    Vector2 _screenCenter;
+    public static Vector2 _screenCenter;
+
+    private Player logoSprite = new Player();
     
-    bool IsRKeyPressed = false;
-    
-    float speed = 0;
     public Game1()
     {
         _graphics = new GraphicsDeviceManager(this);
@@ -46,8 +45,15 @@ public class Game1 : Game
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-        _logo =  Content.Load<Texture2D>("Images/logo");
+        logoSprite.texture =  Content.Load<Texture2D>("Images/pacman");
+        logoSprite.tm.position = _screenCenter;
+        
+        
         _pongAtlas =  Content.Load<Texture2D>("Images/pong-atlas");
+        
+        
+
+        
         // TODO: use this.Content to load your game content here
     }
 
@@ -57,15 +63,11 @@ public class Game1 : Game
             Keyboard.GetState().IsKeyDown(Keys.Escape))
             Exit();
 
-        if (Keyboard.GetState().IsKeyDown(Keys.R) && !IsRKeyPressed)
-        {
-            // R was pressed in this frame
-            speed = 500;
-        }
-
-        IsRKeyPressed =  Keyboard.GetState().IsKeyDown(Keys.R);
+     
         // TODO: Add your update logic here
 
+        logoSprite.Update(gameTime);
+        
         base.Update(gameTime);
     }
 
@@ -75,9 +77,13 @@ public class Game1 : Game
 
         _spriteBatch.Begin();
 
+        
 
         int index = 1;
         int columns = 2;
+        
+        
+        
         _spriteBatch.Draw(
             _pongAtlas, 
             new Vector2(300, 300), // position
@@ -91,7 +97,9 @@ public class Game1 : Game
         );
         
         
-        _spriteBatch.Draw(
+        logoSprite.Draw(_spriteBatch);
+        
+       /* _spriteBatch.Draw(
             _logo, 
             _screenCenter, // position
             null,
@@ -102,7 +110,7 @@ public class Game1 : Game
             new Vector2(0.5f, 0.5f),
             SpriteEffects.None,
             0.0f
-            );
+            );*/
         
         _spriteBatch.End();
         // TODO: Add your drawing code here
