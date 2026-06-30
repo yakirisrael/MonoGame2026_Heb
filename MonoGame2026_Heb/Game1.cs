@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using MonoGame2026_Heb.Content;
 
 namespace MonoGame2026_Heb;
 
@@ -15,15 +16,17 @@ public class Game1 : Game
     
     public static Vector2 _screenCenter;
 
-    private Player player = new Player();
+    private Player player = null;
 
     private SpriteFont _fontOswald;
     
     MousePositionText mousePositionText = new MousePositionText();
-    
+    private SpriteManager spriteManager = null;
     public Game1()
     {
         _graphics = new GraphicsDeviceManager(this);
+        spriteManager = new SpriteManager(Content);
+        
         Content.RootDirectory = "Content";
         IsMouseVisible = true;
 
@@ -49,15 +52,23 @@ public class Game1 : Game
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-        player.texture =  Content.Load<Texture2D>("Images/pacman");
-        player.Start();
+        SpriteManager.AddSprite("pacman","Images/pacman");
         
         _pongAtlas =  Content.Load<Texture2D>("Images/pong-atlas");
  
         mousePositionText.font = Content.Load<SpriteFont>("Fonts/Oswald");
-        mousePositionText.Start();
         
+        Start();
+
         // TODO: use this.Content to load your game content here
+    }
+
+    void Start()
+    {
+        player = new Player();
+        player.Start();
+        
+        mousePositionText.Start();
     }
 
     protected override void Update(GameTime gameTime)

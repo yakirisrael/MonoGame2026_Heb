@@ -9,9 +9,15 @@ public class Player : Sprite
     bool IsRKeyPressed = false;
     float speedRotation = 0;
     float speedMovement = 300;
-    
+
+    public Player() : base("pacman")
+    {
+    }
+
     public override void Start()
     {
+        base.Start();
+        
         tm.position = Game1._screenCenter;
         tm.scale = new Vector2(0.3f, 0.3f);
     }
