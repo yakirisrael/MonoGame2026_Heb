@@ -4,13 +4,13 @@ using Microsoft.Xna.Framework.Input;
 
 namespace MonoGame2026_Heb;
 
-public class Player : Sprite
+public class Player : Animation
 {
     bool IsRKeyPressed = false;
     float speedRotation = 0;
     float speedMovement = 300;
 
-    public Player() : base("pacman")
+    public Player() : base("orangeBird")
     {
     }
 
@@ -57,6 +57,8 @@ public class Player : Sprite
         IsRKeyPressed =  Keyboard.GetState().IsKeyDown(Keys.R);
         
         tm.rotation = (float)gameTime.TotalGameTime.TotalSeconds * speedRotation;
+        
+        base.Update(gameTime);
 
     } 
 }

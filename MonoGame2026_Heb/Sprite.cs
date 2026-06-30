@@ -13,8 +13,8 @@ public class Sprite : IUpdatable, IDrawable
     public int sortingOrder = 0;
     public SpriteEffects effects = SpriteEffects.None;
 
-    private Rectangle? sourceRect = null;
-    private Rectangle destRect;
+    protected Rectangle? sourceRect = null;
+    protected Rectangle destRect;
     
     private Vector2 origin = Vector2.Zero;
 
@@ -22,23 +22,21 @@ public class Sprite : IUpdatable, IDrawable
     public Sprite(string spriteName)
     {
         spritesheet = SpriteManager.GetSprite(spriteName);
+        texture = spritesheet.texture;
     }
 
     public virtual void Start()
     {
-
-        texture = spritesheet.texture;
-        
         sourceRect = texture.Bounds;
         origin = new Vector2(texture.Width * 0.5f, texture.Height * 0.5f);
     }
 
     public virtual void Update(GameTime gameTime)
     {
-       
+      // sourceRect = GetDestRect(texture.Bounds);
     }
 
-    private Rectangle GetDestRect(Rectangle? srcRect)
+    protected Rectangle GetDestRect(Rectangle? srcRect)
     {
         // take into account the scale and origin into 
         // the final result of dest rectangle

@@ -36,3 +36,11 @@ C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\
 C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\obj\Debug\net9.0\MonoGame2026_Heb.sourcelink.json
 C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\pacman.xnb
 C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Fonts\Oswald.xnb
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\B4_s3.xnb
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\B4_s5.xnb
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Bird1_1.xnb
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Bird1_3.xnb
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Bird2 Duck_1.xnb
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Bird2 Duck_3.xnb
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Bird3_Egret2.xnb
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Bird3_Egret4.xnb

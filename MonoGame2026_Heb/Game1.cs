@@ -52,7 +52,7 @@ public class Game1 : Game
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-        SpriteManager.AddSprite("pacman","Images/pacman");
+        SpriteManager.AddSprite("orangeBird","Images/Bird1_1", 1,1);
         
         _pongAtlas =  Content.Load<Texture2D>("Images/pong-atlas");
  
@@ -67,6 +67,7 @@ public class Game1 : Game
     {
         player = new Player();
         player.Start();
+        player.PlayAnimation();
         
         mousePositionText.Start();
     }
