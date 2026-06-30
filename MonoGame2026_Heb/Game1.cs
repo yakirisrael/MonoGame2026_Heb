@@ -52,9 +52,9 @@ public class Game1 : Game
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-        SpriteManager.AddSprite("orangeBird","Images/Bird1_1", 1,1);
+        SpriteManager.AddSprite("orangeBird","Images/Bird1_1", 4,4);
         
-        _pongAtlas =  Content.Load<Texture2D>("Images/pong-atlas");
+//        _pongAtlas =  Content.Load<Texture2D>("Images/pong-atlas");
  
         mousePositionText.font = Content.Load<SpriteFont>("Fonts/Oswald");
         
@@ -93,7 +93,7 @@ public class Game1 : Game
 
         _spriteBatch.Begin();
         
-        
+        /*
 
         int index = 1;
         int columns = 2;
@@ -110,7 +110,7 @@ public class Game1 : Game
             0.0f
         );
         
-        
+        */
         player.Draw(_spriteBatch);
         mousePositionText.Draw(_spriteBatch);
         

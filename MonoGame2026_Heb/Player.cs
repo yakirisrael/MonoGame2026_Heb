@@ -20,7 +20,7 @@ public class Player : Animation
         
         tm.position = Game1._screenCenter;
         tm.scale = new Vector2(0.3f, 0.3f);
-    }
+   }
 
     public override void Update(GameTime gameTime)
     {
@@ -34,13 +34,13 @@ public class Player : Animation
         
         if (Keyboard.GetState().IsKeyDown(Keys.D))
         {
-            effects = SpriteEffects.None;
+            effects = SpriteEffects.FlipHorizontally;
             tm.position += new Vector2(speedMovement * deltaTime, 0);
         }
         
         if (Keyboard.GetState().IsKeyDown(Keys.A))
         {
-            effects = SpriteEffects.FlipHorizontally;
+            effects = SpriteEffects.None;
             tm.position += new Vector2(-speedMovement * deltaTime, 0);
         }
         
@@ -57,7 +57,7 @@ public class Player : Animation
         IsRKeyPressed =  Keyboard.GetState().IsKeyDown(Keys.R);
         
         tm.rotation = (float)gameTime.TotalGameTime.TotalSeconds * speedRotation;
-        
+
         base.Update(gameTime);
 
     } 

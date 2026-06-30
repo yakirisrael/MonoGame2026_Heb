@@ -28,11 +28,14 @@ public class Sprite : IUpdatable, IDrawable
     public virtual void Start()
     {
         sourceRect = texture.Bounds;
-        origin = new Vector2(texture.Width * 0.5f, texture.Height * 0.5f);
     }
 
     public virtual void Update(GameTime gameTime)
     {
+        // origin calculation must happened AFTER the source being update
+        // which is occur in the Animation.update()
+        origin = new Vector2(sourceRect.Value.Width * 0.5f, sourceRect.Value.Height * 0.5f);
+
       // sourceRect = GetDestRect(texture.Bounds);
     }
 
@@ -63,11 +66,12 @@ public class Sprite : IUpdatable, IDrawable
         
         spriteBatch.Draw(
             texture, 
-            destRect,
+            tm.position,
             sourceRect,
             color,
             MathHelper.ToRadians(tm.rotation),
             origin,
+            tm.scale,
             effects,
             sortingOrder
         );
