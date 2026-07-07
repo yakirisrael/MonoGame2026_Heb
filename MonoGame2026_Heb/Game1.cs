@@ -17,6 +17,7 @@ public class Game1 : Game
     public static Vector2 _screenCenter;
 
     private Player player = null;
+    private Enemy enemy = null;
 
     private SpriteFont _fontOswald;
     
@@ -53,6 +54,8 @@ public class Game1 : Game
         _spriteBatch = new SpriteBatch(GraphicsDevice);
 
         SpriteManager.AddSprite("orangeBird","Images/Bird1_1", 4,4);
+        SpriteManager.AddSprite("duck","Images/Bird2 Duck_1", 4,4);
+        SpriteManager.AddSprite("egret","Images/Bird3_Egret4", 4,4);
         
 //        _pongAtlas =  Content.Load<Texture2D>("Images/pong-atlas");
  
@@ -65,11 +68,15 @@ public class Game1 : Game
 
     void Start()
     {
-        player = new Player();
-        player.Start();
+        player = SceneManager.Create<Player>();
         player.PlayAnimation();
         
-        mousePositionText.Start();
+        
+        enemy = SceneManager.Create<Enemy>();
+        enemy.PlayAnimation();
+        
+        SceneManager.Instance.Start();
+
     }
 
     protected override void Update(GameTime gameTime)
@@ -77,12 +84,9 @@ public class Game1 : Game
         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
             Keyboard.GetState().IsKeyDown(Keys.Escape))
             Exit();
+        
 
-     
-        // TODO: Add your update logic here
-
-        player.Update(gameTime);
-        mousePositionText.Update(gameTime);
+        SceneManager.Instance.Update(gameTime);
         
         base.Update(gameTime);
     }
@@ -92,43 +96,10 @@ public class Game1 : Game
         GraphicsDevice.Clear(Color.DarkRed);
 
         _spriteBatch.Begin();
-        
-        /*
 
-        int index = 1;
-        int columns = 2;
-        
-        _spriteBatch.Draw(
-            _pongAtlas, 
-            new Vector2(300, 300), // position
-            new Rectangle((int)(index * _pongAtlas.Width / columns), 0, (int)(_pongAtlas.Width / columns), _pongAtlas.Height),
-            Color.White,
-            MathHelper.ToRadians(0),
-            new Vector2(_pongAtlas.Width * 0.5f, _pongAtlas.Height * 0.5f),
-            new Vector2(1.0f, 1.0f),
-            SpriteEffects.None,
-            0.0f
-        );
-        
-        */
-        player.Draw(_spriteBatch);
-        mousePositionText.Draw(_spriteBatch);
-        
-       /* _spriteBatch.Draw(
-            _logo, 
-            _screenCenter, // position
-            null,
-            Color.White,
-            MathHelper.ToRadians(
-                (float)gameTime.TotalGameTime.TotalSeconds * speed),
-            new Vector2(_logo.Width * 0.5f, _logo.Height * 0.5f),
-            new Vector2(0.5f, 0.5f),
-            SpriteEffects.None,
-            0.0f
-            );*/
+        SceneManager.Instance.Draw(_spriteBatch);
         
         _spriteBatch.End();
-        // TODO: Add your drawing code here
 
         base.Draw(gameTime);
     }

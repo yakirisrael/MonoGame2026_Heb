@@ -21,8 +21,14 @@ public class Sprite : IUpdatable, IDrawable
 
     public Sprite(string spriteName)
     {
+        ChangeSprite(spriteName);
+    }
+
+    public void ChangeSprite(string spriteName)
+    {
         spritesheet = SpriteManager.GetSprite(spriteName);
         texture = spritesheet.texture;
+        
     }
 
     public virtual void Start()
@@ -35,8 +41,6 @@ public class Sprite : IUpdatable, IDrawable
         // origin calculation must happened AFTER the source being update
         // which is occur in the Animation.update()
         origin = new Vector2(sourceRect.Value.Width * 0.5f, sourceRect.Value.Height * 0.5f);
-
-      // sourceRect = GetDestRect(texture.Bounds);
     }
 
     protected Rectangle GetDestRect(Rectangle? srcRect)

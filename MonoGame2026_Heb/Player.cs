@@ -56,6 +56,11 @@ public class Player : Animation
 
         IsRKeyPressed =  Keyboard.GetState().IsKeyDown(Keys.R);
         
+        if (Keyboard.GetState().IsKeyDown(Keys.NumPad1))
+        {
+           ChangeSprite("duck");
+        }
+        
         tm.rotation = (float)gameTime.TotalGameTime.TotalSeconds * speedRotation;
 
         base.Update(gameTime);
