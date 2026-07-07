@@ -29,11 +29,13 @@ public class Sprite : IUpdatable, IDrawable
         spritesheet = SpriteManager.GetSprite(spriteName);
         texture = spritesheet.texture;
         
+        sourceRect = texture.Bounds;
+        destRect = GetDestRect(sourceRect);
     }
 
     public virtual void Start()
     {
-        sourceRect = texture.Bounds;
+
     }
 
     public virtual void Update(GameTime gameTime)

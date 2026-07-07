@@ -10,6 +10,7 @@ public class Enemy : Animation
     {
         collider = SceneManager.Create<Collider>();
         collider.Parent = this;
+        collider.IsTrigger = false;
     }
     
     public override void Start()

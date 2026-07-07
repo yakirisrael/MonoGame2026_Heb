@@ -69,14 +69,17 @@ public class Game1 : Game
 
     void Start()
     {
+        enemy = SceneManager.Create<Enemy>();
+        enemy.PlayAnimation();
+        
         player = SceneManager.Create<Player>();
         player.PlayAnimation();
         
         
-        enemy = SceneManager.Create<Enemy>();
-        enemy.PlayAnimation();
-        
         SceneManager.Instance.Start();
+        
+        player.collider._OnCollision += player.OnCollision;
+        player.collider._OnTrigger += player.OnTrigger;
 
     }
 

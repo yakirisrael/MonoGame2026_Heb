@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace MonoGame2026_Heb;
@@ -8,10 +9,25 @@ public class Collider : Sprite
     public bool IsTrigger = false;
     public int thickness;
 
+    public Action<Collider, Collider> _OnTrigger;
+    public Action<Collider, Collider> _OnCollision;
     public Sprite Parent { get; set; }
 
     public Collider() : base("Pixel")
     {
+    }
+
+    public bool IsInterset(Collider other)
+    {
+        return Parent.destRect.Intersects(other.Parent.destRect);
+    }
+
+    public void Notify(Collider other)
+    {
+        if (IsTrigger || other.IsTrigger)
+            _OnTrigger?.Invoke(this, other);
+        else
+            _OnCollision?.Invoke(this, other);
     }
 
     public override void Draw(SpriteBatch _spriteBatch)

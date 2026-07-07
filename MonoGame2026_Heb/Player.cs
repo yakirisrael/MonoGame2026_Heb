@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -9,7 +10,10 @@ public class Player : Animation
     bool IsRKeyPressed = false;
     float speedRotation = 0;
     float speedMovement = 300;
-    Collider collider = null;
+    public Collider collider = null;
+    
+    bool isColliding = false;
+    Vector2 prevPosition = Vector2.Zero;
 
     public Player() : base("orangeBird")
     {
@@ -23,10 +27,14 @@ public class Player : Animation
         
         tm.position = Game1._screenCenter;
         tm.scale = new Vector2(0.3f, 0.3f);
+        
+        prevPosition =  tm.position;
    }
 
     public override void Update(GameTime gameTime)
     {
+
+
         float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
         
         if (Keyboard.GetState().IsKeyDown(Keys.R) && !IsRKeyPressed)
@@ -67,6 +75,30 @@ public class Player : Animation
         tm.rotation = (float)gameTime.TotalGameTime.TotalSeconds * speedRotation;
 
         base.Update(gameTime);
+        
+        if (isColliding)
+        {
+            tm.position =  prevPosition;
+            isColliding = false;
+        }
+        
+        prevPosition =  tm.position;
+        
+       
 
-    } 
+    }
+
+    public void OnCollision(Collider selfCollder, Collider otherCollder)
+    {
+        isColliding = true;
+        Console.WriteLine("Self " + selfCollder.Parent + " is colliding with " + otherCollder.Parent);
+    }
+    
+    public void OnTrigger(Collider selfCollder, Collider otherCollder)
+    {
+        Console.WriteLine("Self " + selfCollder.Parent + " is trigger with " + otherCollder.Parent);
+        
+        SceneManager.Remove(otherCollder);
+        SceneManager.Remove(otherCollder.Parent);
+    }
 }
