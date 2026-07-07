@@ -9,9 +9,12 @@ public class Player : Animation
     bool IsRKeyPressed = false;
     float speedRotation = 0;
     float speedMovement = 300;
+    Collider collider = null;
 
     public Player() : base("orangeBird")
     {
+        collider = SceneManager.Create<Collider>();
+        collider.Parent = this;
     }
 
     public override void Start()

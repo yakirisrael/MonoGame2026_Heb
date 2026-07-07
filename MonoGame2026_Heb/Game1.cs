@@ -56,6 +56,7 @@ public class Game1 : Game
         SpriteManager.AddSprite("orangeBird","Images/Bird1_1", 4,4);
         SpriteManager.AddSprite("duck","Images/Bird2 Duck_1", 4,4);
         SpriteManager.AddSprite("egret","Images/Bird3_Egret4", 4,4);
+        SpriteManager.AddSprite("Pixel","Images/pixel");
         
 //        _pongAtlas =  Content.Load<Texture2D>("Images/pong-atlas");
  

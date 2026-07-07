@@ -44,3 +44,4 @@ C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\
 C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Bird2 Duck_3.xnb
 C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Bird3_Egret2.xnb
 C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\Bird3_Egret4.xnb
+C:\Users\yakir\RiderProjects\MonoGame2026_Heb\MonoGame2026_Heb\bin\Debug\net9.0\Content\Images\pixel.xnb

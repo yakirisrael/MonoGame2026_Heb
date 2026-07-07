@@ -14,7 +14,7 @@ public class Sprite : IUpdatable, IDrawable
     public SpriteEffects effects = SpriteEffects.None;
 
     protected Rectangle? sourceRect = null;
-    protected Rectangle destRect;
+    public Rectangle destRect;
     
     private Vector2 origin = Vector2.Zero;
 
@@ -41,6 +41,7 @@ public class Sprite : IUpdatable, IDrawable
         // origin calculation must happened AFTER the source being update
         // which is occur in the Animation.update()
         origin = new Vector2(sourceRect.Value.Width * 0.5f, sourceRect.Value.Height * 0.5f);
+        destRect = GetDestRect(sourceRect);
     }
 
     protected Rectangle GetDestRect(Rectangle? srcRect)
@@ -64,7 +65,7 @@ public class Sprite : IUpdatable, IDrawable
             );
     }
 
-    public void Draw(SpriteBatch spriteBatch)
+    public virtual void Draw(SpriteBatch spriteBatch)
     {
         destRect = GetDestRect(sourceRect);
         

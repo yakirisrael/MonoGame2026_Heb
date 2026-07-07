@@ -4,8 +4,12 @@ namespace MonoGame2026_Heb;
 
 public class Enemy : Animation
 {
+    Collider collider = null;
+    
     public Enemy() : base("egret")
     {
+        collider = SceneManager.Create<Collider>();
+        collider.Parent = this;
     }
     
     public override void Start()

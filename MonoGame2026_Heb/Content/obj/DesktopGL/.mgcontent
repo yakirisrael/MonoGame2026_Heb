@@ -15,9 +15,11 @@
     <File>C:/Users/yakir/RiderProjects/MonoGame2026_Heb/MonoGame2026_Heb/Content/Images/Bird3_Egret4.png</File>
     <File>C:/Users/yakir/RiderProjects/MonoGame2026_Heb/MonoGame2026_Heb/Content/Images/logo.png</File>
     <File>C:/Users/yakir/RiderProjects/MonoGame2026_Heb/MonoGame2026_Heb/Content/Images/pacman.png</File>
+    <File>C:/Users/yakir/RiderProjects/MonoGame2026_Heb/MonoGame2026_Heb/Content/Images/pixel.png</File>
     <File>C:/Users/yakir/RiderProjects/MonoGame2026_Heb/MonoGame2026_Heb/Content/Images/pong-atlas.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
