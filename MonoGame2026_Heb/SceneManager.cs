@@ -65,19 +65,13 @@ public class SceneManager : IUpdatable, IDrawable
 
     public void Start()
     {
-        foreach (IUpdatable updatable in _updatables)
-        {
-            updatable.Start();
-        }
+        _updatables.ForEach(updatable => updatable.Start());
     }
 
     public void Update(GameTime gameTime)
     {
-        foreach (IUpdatable updatable in _updatables)
-        {
-            updatable.Update(gameTime);
-        }
-
+        _updatables.ForEach(updatable => updatable.Update(gameTime));
+        
         HandleCollisions();
     }
 
@@ -99,9 +93,6 @@ public class SceneManager : IUpdatable, IDrawable
 
     public void Draw(SpriteBatch spriteBatch)
     {
-        foreach (var drawable in _drawables)
-        {
-            drawable.Draw(spriteBatch);
-        }
+        _drawables.ForEach(drawable => drawable.Draw(spriteBatch));
     }
 }

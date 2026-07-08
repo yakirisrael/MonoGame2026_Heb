@@ -9,8 +9,8 @@ public class Collider : Sprite
     public bool IsTrigger = false;
     public int thickness;
 
-    public Action<Collider, Collider> _OnTrigger;
-    public Action<Collider, Collider> _OnCollision;
+    private Action<Collider, Collider> _OnTrigger;
+    private Action<Collider, Collider> _OnCollision;
     public Sprite Parent { get; set; }
 
     public Collider() : base("Pixel")
@@ -59,5 +59,25 @@ public class Collider : Sprite
             color);
         
 #endif
+    }
+
+    public void RegisterOnTrigger(Action<Collider, Collider> action)
+    {
+        _OnTrigger += action;
+    }
+
+    public void RegisterOnCollision(Action<Collider, Collider> action)
+    {
+        _OnCollision += action;
+    }
+    
+    public void UnregisterOnTrigger(Action<Collider, Collider> action)
+    {
+        _OnTrigger -= action;
+    }
+
+    public void UnregisterOnCollision(Action<Collider, Collider> action)
+    {
+        _OnCollision -= action;
     }
 }

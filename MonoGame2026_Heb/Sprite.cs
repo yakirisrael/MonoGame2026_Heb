@@ -29,21 +29,33 @@ public class Sprite : IUpdatable, IDrawable
         spritesheet = SpriteManager.GetSprite(spriteName);
         texture = spritesheet.texture;
         
-        sourceRect = texture.Bounds;
-        destRect = GetDestRect(sourceRect);
+        // should take the rect of the selected frame
+        sourceRect = spritesheet[0,0];
+        UpdateDestRect();
     }
 
     public virtual void Start()
     {
+        
+    }
 
+    private void UpdateDestRect()
+    {
+        destRect = GetDestRect(sourceRect);
+    }
+
+    private void UpdateOrigin()
+    {
+        origin = new Vector2(sourceRect.Value.Width * 0.5f, sourceRect.Value.Height * 0.5f);
     }
 
     public virtual void Update(GameTime gameTime)
     {
         // origin calculation must happened AFTER the source being update
         // which is occur in the Animation.update()
-        origin = new Vector2(sourceRect.Value.Width * 0.5f, sourceRect.Value.Height * 0.5f);
-        destRect = GetDestRect(sourceRect);
+
+        UpdateOrigin();
+        UpdateDestRect();
     }
 
     protected Rectangle GetDestRect(Rectangle? srcRect)
@@ -69,8 +81,6 @@ public class Sprite : IUpdatable, IDrawable
 
     public virtual void Draw(SpriteBatch spriteBatch)
     {
-        destRect = GetDestRect(sourceRect);
-        
         spriteBatch.Draw(
             texture, 
             tm.position,

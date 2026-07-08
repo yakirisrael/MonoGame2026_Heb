@@ -10,8 +10,8 @@ public class Player : Animation
     bool IsRKeyPressed = false;
     float speedRotation = 0;
     float speedMovement = 300;
-    public Collider collider = null;
-    
+    public Collider collider { get; }
+
     bool isColliding = false;
     Vector2 prevPosition = Vector2.Zero;
 
@@ -33,8 +33,6 @@ public class Player : Animation
 
     public override void Update(GameTime gameTime)
     {
-
-
         float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
         
         if (Keyboard.GetState().IsKeyDown(Keys.R) && !IsRKeyPressed)

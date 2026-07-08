@@ -88,7 +88,5 @@ public class Animation : Sprite
         }
 
         sourceRect = spritesheet[x, y];
-        
-        destRect = GetDestRect(sourceRect);
     }
 }

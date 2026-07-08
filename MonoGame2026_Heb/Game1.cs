@@ -57,14 +57,10 @@ public class Game1 : Game
         SpriteManager.AddSprite("duck","Images/Bird2 Duck_1", 4,4);
         SpriteManager.AddSprite("egret","Images/Bird3_Egret4", 4,4);
         SpriteManager.AddSprite("Pixel","Images/pixel");
-        
-//        _pongAtlas =  Content.Load<Texture2D>("Images/pong-atlas");
  
         mousePositionText.font = Content.Load<SpriteFont>("Fonts/Oswald");
         
         Start();
-
-        // TODO: use this.Content to load your game content here
     }
 
     void Start()
@@ -75,21 +71,23 @@ public class Game1 : Game
         player = SceneManager.Create<Player>();
         player.PlayAnimation();
         
-        
         SceneManager.Instance.Start();
-        
-        player.collider._OnCollision += player.OnCollision;
-        player.collider._OnTrigger += player.OnTrigger;
 
+        player.collider.RegisterOnCollision(player.OnCollision);
+        player.collider.RegisterOnTrigger(player.OnTrigger);
+
+    }
+
+    bool ShouldExitApplication()
+    {
+        return GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
+               Keyboard.GetState().IsKeyDown(Keys.Escape);
     }
 
     protected override void Update(GameTime gameTime)
     {
-        if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
-            Keyboard.GetState().IsKeyDown(Keys.Escape))
-            Exit();
+        if (ShouldExitApplication()) Exit();
         
-
         SceneManager.Instance.Update(gameTime);
         
         base.Update(gameTime);
