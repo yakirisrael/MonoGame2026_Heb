@@ -39,7 +39,7 @@ public class Player : Animation
         {
             // R was pressed in this frame
             speedRotation = 500;
-       }
+        }
         
         if (Keyboard.GetState().IsKeyDown(Keys.D))
         {
@@ -67,7 +67,12 @@ public class Player : Animation
         
         if (Keyboard.GetState().IsKeyDown(Keys.NumPad1))
         {
+           AudioManager.IsPaused = true;
            ChangeSprite("duck");
+        }
+        if (Keyboard.GetState().IsKeyDown(Keys.NumPad2))
+        {
+            AudioManager.IsPaused = false;
         }
         
         tm.rotation = (float)gameTime.TotalGameTime.TotalSeconds * speedRotation;
@@ -94,6 +99,9 @@ public class Player : Animation
     
     public void OnTrigger(Collider selfCollder, Collider otherCollder)
     {
+        
+        AudioManager.PlaySoundEffect("collect");
+        
         Console.WriteLine("Self " + selfCollder.Parent + " is trigger with " + otherCollder.Parent);
         
         SceneManager.Remove(otherCollder);

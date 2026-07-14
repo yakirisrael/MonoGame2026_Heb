@@ -1,7 +1,9 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 using MonoGame2026_Heb.Content;
 
 namespace MonoGame2026_Heb;
@@ -22,11 +24,26 @@ public class Game1 : Game
     private SpriteFont _fontOswald;
     
     MousePositionText mousePositionText = new MousePositionText();
+
+    #region ResourcesManager
+    
+    private ResourcesManager<Texture2D> textureManager;
+    private ResourcesManager<Song> songManager;
+    private ResourcesManager<SoundEffect> soundEffectManager;
+
+    #endregion
+    
+    
     private SpriteManager spriteManager = null;
     public Game1()
     {
         _graphics = new GraphicsDeviceManager(this);
-        spriteManager = new SpriteManager(Content);
+
+        textureManager = new(Content);
+        songManager = new(Content);
+        soundEffectManager = new(Content);
+        
+        spriteManager = new SpriteManager();
         
         Content.RootDirectory = "Content";
         IsMouseVisible = true;
@@ -51,6 +68,12 @@ public class Game1 : Game
 
     protected override void LoadContent()
     {
+        
+        AudioManager.AddSong("theme", "Audio/Music/theme");
+        AudioManager.AddSoundEffect("collect", "Audio/SFX/collect");
+        AudioManager.AddSoundEffect("bounce", "Audio/SFX/bounce");
+        
+        
         _spriteBatch = new SpriteBatch(GraphicsDevice);
 
         SpriteManager.AddSprite("orangeBird","Images/Bird1_1", 4,4);
@@ -65,6 +88,8 @@ public class Game1 : Game
 
     void Start()
     {
+        AudioManager.PlaySong("theme");
+        
         enemy = SceneManager.Create<Enemy>();
         enemy.PlayAnimation();
         
